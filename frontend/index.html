@@ -1,55 +1,39 @@
 <!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>НЕ СПЕШИ БАР — Меню</title>
-  <style>
-    body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#222; }
-    header { background:#0f172a; color:white; padding:16px; display:flex; justify-content:space-between; align-items:center; }
-    .container{ max-width:1000px; margin:24px auto; padding:0 16px; }
-    .grid{ display:grid; grid-template-columns: 1fr 320px; gap:16px; align-items:start; }
-    .card{ background:white; padding:12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
-    .item{ border-bottom:1px solid #eee; padding:8px 0; display:flex; justify-content:space-between; align-items:center; }
-    button{ background:#0f172a; color:white; border:0; padding:8px 12px; border-radius:6px; cursor:pointer; }
-    .cart-item{ display:flex; justify-content:space-between; margin-bottom:8px; }
-    input, textarea{ width:100%; padding:8px; margin-top:8px; box-sizing:border-box; border:1px solid #ddd; border-radius:6px; }
-    .muted{ color:#666; font-size:14px; }
-    .success{ color:green; font-weight:bold; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div style="font-weight:700; font-size:20px;">НЕ СПЕШИ БАР</div>
-    <div id="cart-count">🛒 0</div>
+  <header class="topbar">
+    <div class="brand">НЕ СПЕШИ БАР</div>
+    <div id="cart-count" class="cart-count">🛒 0</div>
   </header>
 
-  <div class="container">
-    <div id="status" class="muted">Завантаження меню...</div>
-    <div class="grid" style="margin-top:12px;">
-      <div id="menu-column"></div>
-      <aside>
-        <div class="card">
-          <h3>Ваше замовлення</h3>
-          <div id="cart-list"><div class="muted">Кошик порожній</div></div>
-          <div style="margin-top:8px;">
-            <label>Ім'я</label>
-            <input id="name" placeholder="Ваше ім'я" />
-            <label>Телефон</label>
-            <input id="phone" placeholder="+380..." />
-            <label>Адреса (якщо доставка)</label>
-            <input id="address" placeholder="Вул. Приклад, 10" />
-            <div style="margin-top:8px;">
-              <div style="display:flex; justify-content:space-between;"><div>Підсумок</div><div id="total">0 грн</div></div>
-              <button id="confirm-btn" style="width:100%; margin-top:8px;">Підтвердити замовлення</button>
-              <div id="feedback" class="muted" style="margin-top:8px;"></div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
+  <main class="container">
+    <section class="menu-column" id="menu-column">
+      <div id="status" class="status">Завантаження меню...</div>
+    </section>
 
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Ваше замовлення</h3>
+        <div id="cart-list" class="cart-list"><div class="muted">Кошик порожній</div></div>
+        <div class="form-group">
+          <input id="name" placeholder="Ім'я" />
+          <input id="phone" placeholder="Телефон" />
+          <input id="address" placeholder="Адреса (для доставки)" />
+          <div class="summary"><div>Підсумок</div><div id="total">0 грн</div></div>
+          <button id="confirm-btn" class="btn primary">Підтвердити замовлення</button>
+          <div id="feedback" class="feedback muted"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
