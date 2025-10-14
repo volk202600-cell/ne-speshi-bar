@@ -1,11 +1,6 @@
-README — Як використовувати фронтенд
+Інструкція — як оновити фронтенд на GitHub/Vercel
 
-1) Відкрий файл config.js і встав свій backend URL у змінну API_BASE:
-   const API_BASE = 'https://твій-backend-url.onrender.com';
-
-2) Завантаж ці файли в папку /frontend у своєму GitHub репозиторії (через Upload files або GitHub Desktop).
-   Файли: index.html, style.css, app.js, config.js, README.txt
-
-3) Vercel автоматично задеплоїть фронтенд. Якщо фронтенд і бекенд на різних доменах, переконайся, що в config.js стоїть правильний API_BASE.
-
-4) Тест: відкрий фронтенд URL, додай товар у кошик та натисни 'Підтвердити замовлення' — повідомлення прийде в Telegram (якщо backend має токен і chat_id).
+1) Розпакуйте цю папку і зайдіть в директорію `frontend`.
+2) Зайдiть в свій репозиторій на GitHub → Add file → Upload files → перетягніть всю папку frontend (index.html, style.css, app.js, images/).
+3) Commit changes.
+4) Vercel автоматично зробить деплой. Перейдіть на фронтенд URL і перевірте роботу: додайте товар, підтвердіть замовлення — повідомлення має прийти в Telegram (якщо backend налаштований).

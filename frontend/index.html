@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>НЕ СПЕШИ БАР — Меню</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ne speshi bar — Меню</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">НЕ СПЕШИ БАР</div>
+    <div class="brand">Ne speshi bar</div>
     <div id="cart-count" class="cart-count">🛒 0</div>
   </header>
 
   <main class="container">
-    <section class="menu-column" id="menu-column">
-      <div id="status" class="status">Завантаження меню...</div>
+    <section id="menu-column" class="menu-column">
+      <!-- Menu will be rendered here -->
     </section>
 
     <aside class="sidebar">
@@ -26,14 +26,19 @@
           <input id="phone" placeholder="Телефон" />
           <input id="address" placeholder="Адреса (для доставки)" />
           <div class="summary"><div>Підсумок</div><div id="total">0 грн</div></div>
-          <button id="confirm-btn" class="btn primary">Підтвердити замовлення</button>
+          <button id="confirm-btn" class="btn primary">Зробити замовлення</button>
+          <div id="payment-choice" class="payment-choice" style="display:none">
+            <div class="muted">Оберіть спосіб оплати (онлайн — неактивно)</div>
+            <label><input type="radio" name="pay" value="cash" checked /> 💵 Готівка</label>
+            <label><input type="radio" name="pay" value="online" disabled /> 💳 Онлайн (скоро)</label>
+            <button id="finalize-btn" class="btn primary">Підтвердити оплату</button>
+          </div>
           <div id="feedback" class="feedback muted"></div>
         </div>
       </div>
     </aside>
   </main>
 
-<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
