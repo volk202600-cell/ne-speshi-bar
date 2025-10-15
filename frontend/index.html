@@ -1,43 +1,49 @@
 <!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ne speshi bar — Меню</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ne Speshi Bar — Меню</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Ne speshi bar</div>
-    <div id="cart-count" class="cart-count">🛒 0</div>
-  </header>
+<header class="topbar">
+  <div class="brand">Ne Speshi Bar</div>
+  <div id="cart-count" class="cart-count">🛒 0</div>
+</header>
 
-  <main class="container">
-    <section id="menu-column" class="menu-column">
-      <!-- Menu will be rendered here -->
-    </section>
+<main class="container">
+  <section id="menu-column" class="menu-column">
+    <div id="status" class="status muted">Меню завантажено локально</div>
+  </section>
 
-    <aside class="sidebar">
-      <div class="card">
-        <h3>Ваше замовлення</h3>
-        <div id="cart-list" class="cart-list"><div class="muted">Кошик порожній</div></div>
-        <div class="form-group">
-          <input id="name" placeholder="Ім'я" />
-          <input id="phone" placeholder="Телефон" />
-          <input id="address" placeholder="Адреса (для доставки)" />
-          <div class="summary"><div>Підсумок</div><div id="total">0 грн</div></div>
-          <button id="confirm-btn" class="btn primary">Зробити замовлення</button>
-          <div id="payment-choice" class="payment-choice" style="display:none">
-            <div class="muted">Оберіть спосіб оплати (онлайн — неактивно)</div>
-            <label><input type="radio" name="pay" value="cash" checked /> 💵 Готівка</label>
-            <label><input type="radio" name="pay" value="online" disabled /> 💳 Онлайн (скоро)</label>
-            <button id="finalize-btn" class="btn primary">Підтвердити оплату</button>
-          </div>
-          <div id="feedback" class="feedback muted"></div>
+  <aside class="sidebar">
+    <div class="card">
+      <h3>Ваше замовлення</h3>
+      <div id="cart-list" class="cart-list"><div class="muted">Кошик порожній</div></div>
+      <div class="form-group">
+        <input id="name" placeholder="Ім'я" />
+        <input id="phone" placeholder="Телефон" />
+        <input id="address" placeholder="Адреса (для доставки)" />
+        <div class="summary"><div>Підсумок</div><div id="total">0 ₴</div></div>
+        <button id="confirm-btn" class="btn primary">Зробити замовлення</button>
+        <div id="payment-choice" class="payment-choice" style="display:none">
+          <div class="muted">Оберіть спосіб оплати (онлайн — неактивна)</div>
+          <label><input type="radio" name="pay" value="cash" checked /> 💵 Готівка</label>
+          <label><input type="radio" name="pay" value="online" disabled /> 💳 Онлайн (скоро)</label>
+          <button id="finalize-btn" class="btn primary">Підтвердити</button>
         </div>
+        <div id="feedback" class="feedback muted"></div>
       </div>
-    </aside>
-  </main>
+    </div>
+  </aside>
+</main>
+
+<!-- modal -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+  <span class="close" onclick="closeModal(event)">&times;</span>
+  <img id="modal-img" class="modal-img" src="">
+</div>
 
 <script src="app.js"></script>
 </body>
