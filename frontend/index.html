@@ -20,11 +20,14 @@
   <aside class="sidebar">
     <div class="card">
       <h3>Ваше замовлення</h3>
+      <div class="muted">Адреса бару: Кропивницький, Театральна 28</div>
       <div id="cart-list" class="cart-list"><div class="muted">Кошик порожній</div></div>
       <div class="form-group">
         <input id="name" placeholder="Ім'я" />
         <input id="phone" placeholder="Телефон" />
-        <input id="address" placeholder="Адреса (для доставки)" />
+        <input id="address" placeholder="Адреса для доставки" />
+        <input id="distance" placeholder="Відстань до адреси (км), введіть число" />
+        <div class="summary"><div>Доставка</div><div id="delivery-cost">0 ₴</div></div>
         <div class="summary"><div>Підсумок</div><div id="total">0 ₴</div></div>
         <button id="confirm-btn" class="btn primary">Зробити замовлення</button>
         <div id="payment-choice" class="payment-choice" style="display:none">

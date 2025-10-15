@@ -1,7 +1,1 @@
-
-README — Як використовувати frontend
-
-1) Скопіюй папку `frontend_ne_speshi_final` в локальну машину, або розпакуй ZIP.
-2) Відкрий папку: завантаж файли index.html, style.css, app.js і папку images в свій репозиторій GitHub -> створи папку frontend і завантаж туди.
-3) Commit changes. Vercel автоматично задеплоїть фронтенд (якщо проект пов'язаний з репозиторієм).
-4) Перевір роботу: відкрий фронтенд URL, додай товар у кошик, натисни Зробити замовлення -> обери оплату -> Підтвердити. Повідомлення надійде у Telegram (якщо backend налаштований).
+README: upload these files into your repo's frontend folder and deploy to Vercel.
