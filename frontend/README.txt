@@ -1,1 +1,1 @@
-README: upload these files into your repo's frontend folder and deploy to Vercel.
+Upload these files to your GitHub repo (frontend folder). Open index.html or deploy to Vercel.

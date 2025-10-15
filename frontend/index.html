@@ -8,45 +8,37 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">Ne Speshi Bar</div>
-  <div id="cart-count" class="cart-count">🛒 0</div>
+  <div class="brand"><img src="images/logo.png" alt="logo" class="logo"> <span>Ne Speshi Bar</span></div>
+  <div class="right-controls">
+    <input id="search" placeholder="Шукати страву..." />
+    <button id="open-cart" class="cart-btn">🛒 <span id="cart-count">0</span></button>
+  </div>
 </header>
-
 <main class="container">
-  <section id="menu-column" class="menu-column">
-    <div id="status" class="status muted">Меню завантажено локально</div>
+  <section class="hero">
+    <h1>Меню Ne Speshi Bar</h1>
+    <p>Свіжі фото, системний каталог, зручний кошик — зроби замовлення за кілька кліків.</p>
   </section>
-
-  <aside class="sidebar">
-    <div class="card">
-      <h3>Ваше замовлення</h3>
-      <div class="muted">Адреса бару: Кропивницький, Театральна 28</div>
-      <div id="cart-list" class="cart-list"><div class="muted">Кошик порожній</div></div>
-      <div class="form-group">
-        <input id="name" placeholder="Ім'я" />
-        <input id="phone" placeholder="Телефон" />
-        <input id="address" placeholder="Адреса для доставки" />
-        <input id="distance" placeholder="Відстань до адреси (км), введіть число" />
-        <div class="summary"><div>Доставка</div><div id="delivery-cost">0 ₴</div></div>
-        <div class="summary"><div>Підсумок</div><div id="total">0 ₴</div></div>
-        <button id="confirm-btn" class="btn primary">Зробити замовлення</button>
-        <div id="payment-choice" class="payment-choice" style="display:none">
-          <div class="muted">Оберіть спосіб оплати (онлайн — неактивна)</div>
-          <label><input type="radio" name="pay" value="cash" checked /> 💵 Готівка</label>
-          <label><input type="radio" name="pay" value="online" disabled /> 💳 Онлайн (скоро)</label>
-          <button id="finalize-btn" class="btn primary">Підтвердити</button>
-        </div>
-        <div id="feedback" class="feedback muted"></div>
-      </div>
-    </div>
-  </aside>
+  <section id="catalog" class="catalog"></section>
 </main>
 
-<!-- modal -->
-<div id="modal" class="modal" onclick="closeModal(event)">
-  <span class="close" onclick="closeModal(event)">&times;</span>
-  <img id="modal-img" class="modal-img" src="">
+<!-- Cart drawer -->
+<div id="cart-drawer" class="cart-drawer">
+  <header class="cart-head">
+    <h3>Кошик</h3>
+    <button id="close-cart">✕</button>
+  </header>
+  <div id="cart-contents" class="cart-contents"></div>
+  <div class="cart-footer">
+    <div class="totals"><span>Підсумок:</span> <strong id="cart-total">0 ₴</strong></div>
+    <div class="actions">
+      <button id="checkout" class="btn primary">Оформити замовлення</button>
+    </div>
+  </div>
 </div>
+
+<!-- Image modal -->
+<div id="img-modal" class="img-modal"><img id="img-modal-img"><button id="img-modal-close">✕</button></div>
 
 <script src="app.js"></script>
 </body>

@@ -1,0 +1,82 @@
+[
+  {
+    "productId": "p1",
+    "name": "Стейк Ribeye",
+    "description": "Ніжний мармуровий стейк, ціна за 100 г.",
+    "price": 280,
+    "photo": "images/img1.jpg",
+    "categoryName": "Стейки"
+  },
+  {
+    "productId": "p2",
+    "name": "Стейк Cowboy",
+    "description": "Класичний Cowboy — ціна за 100 г.",
+    "price": 220,
+    "photo": "images/img2.jpg",
+    "categoryName": "Стейки"
+  },
+  {
+    "productId": "p3",
+    "name": "Мідії у вершковому соусі",
+    "description": "Ніжні мідії у запашному вершковому соусі з чіабатою.",
+    "price": 330,
+    "photo": "images/img4.jpg",
+    "categoryName": "Морепродукти"
+  },
+  {
+    "productId": "p4",
+    "name": "Ребра на грилі",
+    "description": "Ребра, довго приготовані на грилі.",
+    "price": 390,
+    "photo": "images/img3.jpg",
+    "categoryName": "М'ясні страви"
+  },
+  {
+    "productId": "p5",
+    "name": "Стейк зі свинини",
+    "description": "Соковитий стейк зі свинини — ціна за 100 г.",
+    "price": 200,
+    "photo": "images/img5.jpg",
+    "categoryName": "Стейки"
+  },
+  {
+    "productId": "p6",
+    "name": "Асорті закусок",
+    "description": "Дошка закусок для компанії.",
+    "price": 260,
+    "photo": "images/img9.jpg",
+    "categoryName": "Закуски"
+  },
+  {
+    "productId": "p7",
+    "name": "Рулет у беконі",
+    "description": "Курячий рулет у беконі з гарніром.",
+    "price": 210,
+    "photo": "images/img8.jpg",
+    "categoryName": "Гарячі страви"
+  },
+  {
+    "productId": "p8",
+    "name": "Десерт з морозивом",
+    "description": "Домашнє морозиво з вафлею та фруктами.",
+    "price": 120,
+    "photo": "images/img10.jpg",
+    "categoryName": "Десерти"
+  },
+  {
+    "productId": "p9",
+    "name": "Картопляний гарнір",
+    "description": "Смажена картопля як гарнір.",
+    "price": 80,
+    "photo": "images/img6.jpg",
+    "categoryName": "Гарніри"
+  },
+  {
+    "productId": "p10",
+    "name": "М'ясо з соусом",
+    "description": "Соковите м'ясо з соусом та овочами.",
+    "price": 450,
+    "photo": "images/img7.jpg",
+    "categoryName": "М'ясні страви"
+  }
+]
