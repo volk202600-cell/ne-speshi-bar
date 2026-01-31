@@ -5,33 +5,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Ne Speshi Bar — Меню</title>
 <link rel="stylesheet" href="style.css">
+
 <style>
-/* анімація польоту в кошик */
 .fly-dot{
   position:fixed;
   width:14px;
   height:14px;
-  background:#ff9800;
+  background:#ffb703;
   border-radius:50%;
   pointer-events:none;
   z-index:9999;
   transition:.6s ease;
 }
-
-/* форма оформлення */
-.checkout-form{
-  padding:12px;
-  border-top:1px solid #333;
+.cart-bounce{
+  animation:bounce .4s;
 }
-.checkout-form input{
-  width:100%;
-  padding:8px;
-  margin-bottom:8px;
-}
-.file-name{
-  font-size:13px;
-  opacity:.8;
-  margin-bottom:8px;
+@keyframes bounce{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
 }
 </style>
 </head>
@@ -44,7 +36,9 @@
   </div>
   <div class="right-controls">
     <input id="search" placeholder="Шукати страву..." />
-    <button id="open-cart" class="cart-btn">🛒 <span id="cart-count">0</span></button>
+    <button id="open-cart" class="cart-btn">
+      🛒 <span id="cart-count">0</span>
+    </button>
   </div>
 </header>
 
@@ -70,15 +64,7 @@
       <span>Підсумок:</span>
       <strong id="cart-total">0 ₴</strong>
     </div>
-
-    <!-- ФОРМА ОФОРМЛЕННЯ -->
-    <div class="checkout-form">
-      <input id="address" placeholder="Адреса доставки">
-
-      <input type="file" id="file" hidden>
-      <button id="file-btn" class="btn">📎 Загрузити файл</button>
-      <div id="file-name" class="file-name"></div>
-
+    <div class="actions">
       <button id="checkout" class="btn primary">Оформити замовлення</button>
     </div>
   </div>
@@ -93,36 +79,11 @@
 <script src="app.js"></script>
 
 <script>
-/* кнопка файлу */
-const fileInput = document.getElementById('file');
-const fileBtn = document.getElementById('file-btn');
-const fileName = document.getElementById('file-name');
-
-fileBtn.onclick = () => fileInput.click();
-fileInput.onchange = () => {
-  if(fileInput.files[0]){
-    fileName.textContent = 'Файл: ' + fileInput.files[0].name;
-  }
-};
-
-/* перевірка при замовленні */
-document.getElementById('checkout').onclick = () => {
-  const address = document.getElementById('address').value;
-  if(!address){
-    alert('Введи адресу доставки');
-    return;
-  }
-  if(!fileInput.files[0]){
-    alert('Загрузи файл');
-    return;
-  }
-  alert('Замовлення прийнято 👍');
-};
-
-/* анімація в кошик */
+/* АНІМАЦІЯ ДОДАВАННЯ В КОШИК */
 document.addEventListener('click', e => {
   if(e.target.classList.contains('add-to-cart')){
-    const cartBtn = document.getElementById('open-cart').getBoundingClientRect();
+    const cartBtn = document.getElementById('open-cart');
+    const c = cartBtn.getBoundingClientRect();
     const r = e.target.getBoundingClientRect();
 
     const d = document.createElement('div');
@@ -132,15 +93,29 @@ document.addEventListener('click', e => {
     document.body.appendChild(d);
 
     setTimeout(()=>{
-      d.style.left = cartBtn.left+'px';
-      d.style.top = cartBtn.top+'px';
+      d.style.left = c.left+'px';
+      d.style.top = c.top+'px';
       d.style.opacity='0';
       d.style.transform='scale(.2)';
     },10);
 
-    setTimeout(()=>d.remove(),700);
+    setTimeout(()=>{
+      d.remove();
+      cartBtn.classList.add('cart-bounce');
+      setTimeout(()=>cartBtn.classList.remove('cart-bounce'),400);
+    },600);
   }
 });
+
+/* ЗАПИТ АДРЕСИ ЯК PROMPT */
+document.getElementById('checkout').onclick = () => {
+  const address = prompt('Введіть адресу доставки');
+  if(!address){
+    alert('Без адреси замовлення неможливе');
+    return;
+  }
+  alert('Замовлення прийнято 👍\nАдреса: ' + address);
+};
 </script>
 
 </body>
