@@ -31,3 +31,17 @@ body{margin:0;font-family:Inter,Segoe UI,Arial;background:linear-gradient(180deg
 #img-modal-close{position:fixed;right:24px;top:20px;background:transparent;border:0;color:white;font-size:22px;cursor:pointer}
 
 @media(max-width:900px){.catalog{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}.cart-drawer{width:100%}}
+
+/* === ADD TO CART ANIMATION === */
+.fly-dot{
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 12px rgba(255,183,3,.8);
+  transition: all .6s cubic-bezier(.2,.8,.2,1);
+}
+
