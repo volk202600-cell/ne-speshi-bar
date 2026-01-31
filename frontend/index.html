@@ -79,9 +79,9 @@
 <script src="app.js"></script>
 
 <script>
-/* АНІМАЦІЯ ДОДАВАННЯ В КОШИК */
+/* АНІМАЦІЯ ДОДАВАННЯ (ловимо будь-яку кнопку "Додати") */
 document.addEventListener('click', e => {
-  if(e.target.classList.contains('add-to-cart')){
+  if(e.target.textContent.trim() === 'Додати'){
     const cartBtn = document.getElementById('open-cart');
     const c = cartBtn.getBoundingClientRect();
     const r = e.target.getBoundingClientRect();
@@ -107,14 +107,29 @@ document.addEventListener('click', e => {
   }
 });
 
-/* ЗАПИТ АДРЕСИ ЯК PROMPT */
+/* ПРАВИЛЬНИЙ ПОРЯДОК ОФОРМЛЕННЯ */
 document.getElementById('checkout').onclick = () => {
   const address = prompt('Введіть адресу доставки');
-  if(!address){
-    alert('Без адреси замовлення неможливе');
-    return;
-  }
-  alert('Замовлення прийнято 👍\nАдреса: ' + address);
+  if(!address) return alert('Адреса обовʼязкова');
+
+  const comment = prompt('Коментар до замовлення (необовʼязково)') || '—';
+
+  const payment = prompt('Спосіб оплати: готівка / онлайн');
+  if(!payment) return alert('Оберіть спосіб оплати');
+
+  /* тут піде Telegram */
+  console.log({
+    address,
+    comment,
+    payment
+  });
+
+  alert(
+    'Замовлення прийнято 👍\n\n' +
+    'Адреса: ' + address + '\n' +
+    'Коментар: ' + comment + '\n' +
+    'Оплата: ' + payment
+  );
 };
 </script>
 
