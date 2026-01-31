@@ -127,6 +127,29 @@ document.getElementById('img-modal-close')
   .addEventListener('click', ()=>{
     document.getElementById('img-modal').style.display='none';
   });
+function flyToCart(btn){
+  const cartBtn = document.getElementById('open-cart');
+  if(!cartBtn) return;
+
+  const c = cartBtn.getBoundingClientRect();
+  const r = btn.getBoundingClientRect();
+
+  const dot = document.createElement('div');
+  dot.className = 'fly-dot';
+  dot.style.left = r.left + 'px';
+  dot.style.top = r.top + 'px';
+
+  document.body.appendChild(dot);
+
+  setTimeout(() => {
+    dot.style.left = c.left + 'px';
+    dot.style.top = c.top + 'px';
+    dot.style.opacity = '0';
+    dot.style.transform = 'scale(.2)';
+  }, 10);
+
+  setTimeout(() => dot.remove(), 700);
+}
 
 /* 🔧 ОСНОВНИЙ ФІКС ТУТ */
 document.getElementById('checkout')
