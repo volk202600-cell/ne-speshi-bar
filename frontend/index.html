@@ -5,15 +5,49 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Ne Speshi Bar — Меню</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* анімація польоту в кошик */
+.fly-dot{
+  position:fixed;
+  width:14px;
+  height:14px;
+  background:#ff9800;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+  transition:.6s ease;
+}
+
+/* форма оформлення */
+.checkout-form{
+  padding:12px;
+  border-top:1px solid #333;
+}
+.checkout-form input{
+  width:100%;
+  padding:8px;
+  margin-bottom:8px;
+}
+.file-name{
+  font-size:13px;
+  opacity:.8;
+  margin-bottom:8px;
+}
+</style>
 </head>
+
 <body>
 <header class="topbar">
-  <div class="brand"><img src="images/logo.png" alt="logo" class="logo"> <span>Ne Speshi Bar</span></div>
+  <div class="brand">
+    <img src="images/logo.png" alt="logo" class="logo">
+    <span>Ne Speshi Bar</span>
+  </div>
   <div class="right-controls">
     <input id="search" placeholder="Шукати страву..." />
     <button id="open-cart" class="cart-btn">🛒 <span id="cart-count">0</span></button>
   </div>
 </header>
+
 <main class="container">
   <section class="hero">
     <h1>Меню Ne Speshi Bar</h1>
@@ -28,18 +62,86 @@
     <h3>Кошик</h3>
     <button id="close-cart">✕</button>
   </header>
+
   <div id="cart-contents" class="cart-contents"></div>
+
   <div class="cart-footer">
-    <div class="totals"><span>Підсумок:</span> <strong id="cart-total">0 ₴</strong></div>
-    <div class="actions">
+    <div class="totals">
+      <span>Підсумок:</span>
+      <strong id="cart-total">0 ₴</strong>
+    </div>
+
+    <!-- ФОРМА ОФОРМЛЕННЯ -->
+    <div class="checkout-form">
+      <input id="address" placeholder="Адреса доставки">
+
+      <input type="file" id="file" hidden>
+      <button id="file-btn" class="btn">📎 Загрузити файл</button>
+      <div id="file-name" class="file-name"></div>
+
       <button id="checkout" class="btn primary">Оформити замовлення</button>
     </div>
   </div>
 </div>
 
 <!-- Image modal -->
-<div id="img-modal" class="img-modal"><img id="img-modal-img"><button id="img-modal-close">✕</button></div>
+<div id="img-modal" class="img-modal">
+  <img id="img-modal-img">
+  <button id="img-modal-close">✕</button>
+</div>
 
 <script src="app.js"></script>
+
+<script>
+/* кнопка файлу */
+const fileInput = document.getElementById('file');
+const fileBtn = document.getElementById('file-btn');
+const fileName = document.getElementById('file-name');
+
+fileBtn.onclick = () => fileInput.click();
+fileInput.onchange = () => {
+  if(fileInput.files[0]){
+    fileName.textContent = 'Файл: ' + fileInput.files[0].name;
+  }
+};
+
+/* перевірка при замовленні */
+document.getElementById('checkout').onclick = () => {
+  const address = document.getElementById('address').value;
+  if(!address){
+    alert('Введи адресу доставки');
+    return;
+  }
+  if(!fileInput.files[0]){
+    alert('Загрузи файл');
+    return;
+  }
+  alert('Замовлення прийнято 👍');
+};
+
+/* анімація в кошик */
+document.addEventListener('click', e => {
+  if(e.target.classList.contains('add-to-cart')){
+    const cartBtn = document.getElementById('open-cart').getBoundingClientRect();
+    const r = e.target.getBoundingClientRect();
+
+    const d = document.createElement('div');
+    d.className = 'fly-dot';
+    d.style.left = r.left+'px';
+    d.style.top = r.top+'px';
+    document.body.appendChild(d);
+
+    setTimeout(()=>{
+      d.style.left = cartBtn.left+'px';
+      d.style.top = cartBtn.top+'px';
+      d.style.opacity='0';
+      d.style.transform='scale(.2)';
+    },10);
+
+    setTimeout(()=>d.remove(),700);
+  }
+});
+</script>
+
 </body>
 </html>
